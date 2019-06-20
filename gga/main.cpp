@@ -1,15 +1,32 @@
-//
-//  main.cpp
-//  gga
-//
-//  Created by s20181106276 on 2019/6/19.
-//  Copyright © 2019 s20181106276. All rights reserved.
-//
-
 #include <iostream>
+#include <fstream>
+#include <string>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+using namespace std;
+
+ifstream xx(" /Users/den-o/Desktop/xx.txt");
+ofstream gg("/Users/den-o/Desktop/gg.txt");
+
+int main()
+{
+  
+    xx.open(" /Users/den-o/Desktop/xx.txt",ios_base::in);
+    if (!xx.is_open())
+    {
+        cerr<<"could not open file"<<endl;
+        exit(0);
+        }
+        char ch;
+        while(xx.get(ch))
+        {
+            cout<<ch;
+        }
+        xx.clear();
+        xx.close();
+    struct{
+        char Name[15];
+        int Score[3]={0,0,0};
+    } Judge[7];
+    
+
 }
