@@ -4,54 +4,66 @@
 
 using namespace std;
 
+ifstream Group1("/Users/den-o/Desktop/Group1.txt");
 
-ofstream gg("/Users/den-o/Desktop/gg.txt");
-
-struct X{
+struct Judge{
     string JudgeName;//评委姓名
     int Score[3]={0,0,0};//评委打分
 } Judge[7];
-struct Y{
+struct Student{
     string Academy;//学院
     string StudentNumber;//学号
     string StudentName;//学生姓名
     string TelephoneNumber;//手机号
-    int aa[7];
 } Student[3];
 
 int main()
 {
     int a=0,b=0;
-    ifstream xx(" /Users/den-o/Desktop/xx.txt",ios::in);
-    if (!xx.is_open())
+    
+    if (!Group1.is_open())
     {
-        cerr<<"could not open file"<<endl;
-        exit(0);
-        }
-    while(!xx.eof()&& a<7)
+        exit(1);
+    }
+    while(!Group1.eof()&& a<7)
     {
-        xx>>Judge[a].JudgeName>>Judge[a].Score[0]>>Judge[a].Score[1]>>Judge[a].Score[2];
+        Group1>>Judge[a].JudgeName>>Judge[a].Score[0]>>Judge[a].Score[1]>>Judge[a].Score[2];
         a++;
     }
-        xx.close();
+    Group1.close();
     return 0;
     
-    ifstream yy(" /Users/den-o/Desktop/yy.txt",ios::in);
-    if (!yy.is_open())
+    ifstream Group2("/Users/den-o/Desktop/Group2.txt");
+    if (Group2.is_open())
     {
-        cerr<<"could not open file"<<endl;
-        exit(0);
+        exit(2);
     }
-    while(!yy.eof()&& b<3)
+    while(!Group2.eof()&& b<3)
     {
-        yy>>Student[b].Academy>>Student[b].StudentNumber>>Student[b].StudentName>>Student[b].TelephoneNumber;
+        
+        Group2>>Student[b].Academy>>Student[b].StudentNumber>>Student[b].StudentName>>Student[b].TelephoneNumber;
         b++;
     }
-    yy.close();
+    Group2.close();
     return 0;
     
-    for(int i)
-
+    int test[3][7];
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<7;j++)
+        {
+            test[i][j]=Judge[a].Score[i];
+        }
+    }
     
-
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<7;j++)
+        {
+            cout<<test[i][j];
+        }
+    }
+    
+    
+    return 0;
 }
