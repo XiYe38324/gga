@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
+#include <algorithm>
+#include <iomanip>
 using namespace std;
-
 struct Judge{
     string JudgeName;//评委姓名
     double Score[3]={0,0,0};//评委打分
@@ -16,7 +16,10 @@ struct Student{
     double Grade[7];//学生成绩
     double Average;//平均分
 } S[3];
-
+bool Compare(const Student &S1,const Student &S2 )
+{
+    return (S1.Average > S2.Average);
+}
 int main()
 {
     int a=0,b=0,c=0;
@@ -38,7 +41,6 @@ int main()
         b++;
     }
     Group2.close();
-    
     for(int i=0;i<3;i++)
     {
         for(int j=0;j<7;j++)
@@ -57,7 +59,6 @@ int main()
             n++;
         }
         cout << endl;
-        
     }
     */
     for(int i=0;i<3;i++)
@@ -75,22 +76,22 @@ int main()
     // cout<<sum<<" "<<min<<" "<<max<<endl;
           S[i].Average=(sum-min-max)/5;
         cout<<endl;
-    
-
-
+    }
+    sort(S,S+3,Compare);
     ofstream Group3("/Users/den-o/Desktop/Group3.txt");
+    Group3<<left<<setw(2)<<"排名"<<left<<setw(30)<<"学院"<<left<<setw(23)<<"学号"<<left<<setw(23)<<"姓名"<<left<<setw(17)<<"联系方式"<<left<<setw(7)<<"最终得分"<<endl;
     while(!Group3.eof()&& c<3)
     {
-        Group3<<S[c].Academy<<" "<<S[c].StudentNumber<<" "<<S[c].StudentName<<" "<<S[c].TelephoneNumber<<" "<<S[c].Average<<endl;
+        Group3<<c+1<<" "<<S[c].Academy<<" "<<S[c].StudentNumber<<" "<<S[c].StudentName<<" "<<S[c].TelephoneNumber<<" "<<S[c].Average<<endl;
         //  cout << S[b].Academy<<" "<<S[b].StudentNumber<<" "<<S[b].StudentName<<" "<<S[b].TelephoneNumber<<endl;
         c++;
     }
     Group2.close();
-    
-    for(int i=0;i<3;i++)
+    cout<<left<<setw(3)<<"排名"<<left<<setw(30)<<"学院"<<left<<setw(23)<<"学号"<<left<<setw(23)<<"联系方式"<<left<<setw(7)<<"最终得分"<<endl;    for(int i=0;i<3;i++)
     {
-        cout<<S[i].Academy<<" "<<S[i].StudentNumber<<" "<<S[i].StudentName<<" "<<S[i].TelephoneNumber<<" "<<S[i].Average<<endl;
+        cout<<left<<setw(2)<<i+1<<" "<<left<<setw(30)<<S[i].Academy<<" "<<left<<setw(23)<<S[i].StudentNumber<<" "<<S[i].StudentName<<" "<<S[i].TelephoneNumber<<" "<<S[i].Average<<endl;
     }
     
     return 0;
 }
+    
