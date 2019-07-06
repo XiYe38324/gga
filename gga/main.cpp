@@ -79,17 +79,17 @@ int main()
     }
     sort(S,S+3,Compare);
     ofstream Group3("/Users/den-o/Desktop/Group3.txt");
-    Group3<<left<<setw(2)<<"排名"<<left<<setw(30)<<"学院"<<left<<setw(23)<<"学号"<<left<<setw(23)<<"姓名"<<left<<setw(17)<<"联系方式"<<left<<setw(7)<<"最终得分"<<endl;
+    Group3<<left<<setw(10)<<"排名"<<left<<setw(28)<<"学院"<<left<<setw(23)<<"学号"<<left<<setw(14)<<"姓名"<<left<<setw(21)<<"联系方式"<<left<<setw(15)<<"最终得分"<<endl;
     while(!Group3.eof()&& c<3)
     {
-        Group3<<c+1<<" "<<S[c].Academy<<" "<<S[c].StudentNumber<<" "<<S[c].StudentName<<" "<<S[c].TelephoneNumber<<" "<<S[c].Average<<endl;
-        //  cout << S[b].Academy<<" "<<S[b].StudentNumber<<" "<<S[b].StudentName<<" "<<S[b].TelephoneNumber<<endl;
+        Group3<<left<<setw(6)<<c+1<<" "<<left<<setw(30)<<S[c].Academy<<" "<<left<<setw(19)<<S[c].StudentNumber<<" "<<left<<setw(13)<<S[c].StudentName<<" "<<left<<setw(15)<<S[c].TelephoneNumber<<" "<<left<<setw(8)<<S[c].Average<<endl;
         c++;
     }
     Group2.close();
-    cout<<left<<setw(3)<<"排名"<<left<<setw(30)<<"学院"<<left<<setw(23)<<"学号"<<left<<setw(23)<<"联系方式"<<left<<setw(7)<<"最终得分"<<endl;    for(int i=0;i<3;i++)
+    cout<<left<<setw(10)<<"排名"<<left<<setw(28)<<"学院"<<left<<setw(23)<<"学号"<<left<<setw(14)<<"姓名"<<left<<setw(21)<<"联系方式"<<left<<setw(15)<<"最终得分"<<endl;
+    for(int i=0;i<3;i++)
     {
-        cout<<left<<setw(2)<<i+1<<" "<<left<<setw(30)<<S[i].Academy<<" "<<left<<setw(23)<<S[i].StudentNumber<<" "<<S[i].StudentName<<" "<<S[i].TelephoneNumber<<" "<<S[i].Average<<endl;
+        cout<<left<<setw(6)<<i+1<<" "<<left<<setw(30)<<S[i].Academy<<" "<<left<<setw(19)<<S[i].StudentNumber<<" "<<left<<setw(13)<<S[i].StudentName<<" "<<left<<setw(15)<<S[i].TelephoneNumber<<" "<<left<<setw(8)<<S[i].Average<<endl;
     }
     
     return 0;
