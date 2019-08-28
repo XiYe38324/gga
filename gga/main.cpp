@@ -78,7 +78,7 @@ int main()
         cout<<endl;
     }
     sort(S,S+3,Compare);
-    ofstream Group3("/Users/den-o/Desktop/Group3.txt");
+    ofstream Group3("/Users/den-o/Desktop/Group3.csv");
     Group3<<left<<setw(10)<<"排名"<<left<<setw(28)<<"学院"<<left<<setw(23)<<"学号"<<left<<setw(14)<<"姓名"<<left<<setw(21)<<"联系方式"<<left<<setw(15)<<"最终得分"<<endl;
     while(!Group3.eof()&& c<3)
     {
